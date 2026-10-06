@@ -316,3 +316,7 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             expr = expr.substring(0, i) + "-" + expr.substring(i);
         }
     }
+    
+    private boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == MULC || c == DIVC;
+    }
