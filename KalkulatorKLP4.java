@@ -67,3 +67,14 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         display.setBorder(null);
         display.setEditable(false);
         display.setFocusable(false);
+
+        displayPanel.add(historyBar, BorderLayout.NORTH);
+        displayPanel.add(display, BorderLayout.CENTER);
+        main.add(displayPanel, BorderLayout.NORTH);
+
+        // ===== Buttons (1 "=" saja, slot terakhir = "+/-") =====
+        JPanel buttons = new JPanel(new GridLayout(5, 4, 6, 6));
+        buttons.setOpaque(false);
+        String[] cmds = {
+            "C", BACK, DIV, MUL,
+            "7", "8", "9", "-",
