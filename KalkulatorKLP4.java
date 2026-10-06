@@ -206,3 +206,16 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         historyDialog.add(panel);
         refreshHistoryList();
     }
+    
+    private void showHistory() {
+        refreshHistoryList();
+        historyDialog.setSize(340, 500);
+        historyDialog.setLocationRelativeTo(this);
+        historyDialog.setVisible(true);
+        historyDialog.toFront();
+    }
+
+    private void refreshHistoryList() {
+        historyModel.clear();
+        for (int i = history.size() - 1; i >= 0; i--) historyModel.addElement(history.get(i));
+    }
