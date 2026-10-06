@@ -164,3 +164,35 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             int idx = value.lastIndexOf(" = ");
             String e = idx >= 0 ? value.substring(0, idx) : value;
             String r = idx >= 0 ? value.substring(idx + 3) : "";
+
+             JLabel el = new JLabel(e);
+            el.setFont(new Font("SansSerif", Font.PLAIN, 14));
+            el.setForeground(new Color(0xD0, 0xA8, 0xA8));
+            JLabel rl = new JLabel("= " + r);
+            rl.setFont(new Font("SansSerif", Font.BOLD, 18));
+            rl.setForeground(CREAM);
+            cell.add(el);
+            cell.add(rl);
+            return cell;
+        });
+        list.addListSelectionListener(ev -> {
+            if (ev.getValueIsAdjusting()) return;
+            int idx = list.getSelectedIndex();
+            if (idx >= 0) { useHistoryItem(idx); list.clearSelection(); }
+        });
+
+        JScrollPane scroll = new JScrollPane(list);
+        scroll.setBorder(BorderFactory.createLineBorder(new Color(0x6A, 0x28, 0x28)));
+        scroll.getViewport().setBackground(MAROON_DARK);
+        scroll.getVerticalScrollBar().setUnitIncrement(16);
+        panel.add(scroll, BorderLayout.CENTER);
+
+        JButton clearBtn = new JButton("Clear History");
+        clearBtn.setFont(new Font("SansSerif", Font.BOLD, 14));
+        styleButton(clearBtn, OP_RED, Color.WHITE);
+        clearBtn.addActionListener(ev -> { history.clear(); refreshHistoryList(); });
+
+        JButton closeBtn = new JButton("Close");
+        closeBtn.setFont(new Font("SansSerif", Font.BOLD, 14));
+        styleButton(closeBtn, NUM_BG, NUM_FG);
+        closeBtn.addActionListener(ev -> historyDialog.setVisible(false));
