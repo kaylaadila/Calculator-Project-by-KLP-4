@@ -88,3 +88,12 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         for (String cmd : cmds) {
             JButton btn = new JButton(cmd);
             btn.setActionCommand(cmd);
+            btn.setFont(btnFont);
+            btn.addActionListener(this);
+            Color bg;
+            if (cmd.equals("C")) bg = OP_RED;
+            else if (cmd.equals(BACK)) bg = OP_PEACH;
+            else if (cmd.equals(MUL)) bg = OP_GOLD;
+            else if (cmd.equals(DIV)) bg = OP_PURPLE;
+            else if (cmd.equals("+")) bg = OP_BLUE;
+            else if (cmd.equals("-")) bg = OP_GREEN;
