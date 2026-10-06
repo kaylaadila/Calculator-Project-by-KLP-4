@@ -28,3 +28,13 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
     private static final Color NUM_FG        = new Color(0x2B, 0x0A, 0x0A);
     private static final Color OP_RED        = new Color(0xB3, 0x2D, 0x3A);
     private static final Color OP_PEACH      = new Color(0xD9, 0x7A, 0x7A);
+    private static final Color OP_GOLD       = new Color(0xD4, 0xA0, 0x4A);
+    private static final Color OP_PURPLE     = new Color(0x7A, 0x2E, 0x5A);
+    private static final Color OP_BLUE       = new Color(0x5A, 0x3A, 0x6E);
+    private static final Color OP_GREEN      = new Color(0x3E, 0x6B, 0x4A);
+    private static final Color OP_CORAL      = new Color(0xE0, 0x4A, 0x5A);
+
+    public KalkulatorKLP4() {
+        setTitle("Kalkulator - KLP 4");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(360, 540);
