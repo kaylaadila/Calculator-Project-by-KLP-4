@@ -238,3 +238,11 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         updateDisplay();
         historyDialog.setVisible(false);
     }
+    
+    // ===== AKSI TOMBOL =====
+    public void actionPerformed(ActionEvent e) {
+        String cmd = e.getActionCommand();
+
+        if (errorState && !cmd.equals("C")) {
+            errorState = false; expr = ""; justEvaluated = false;
+        }
