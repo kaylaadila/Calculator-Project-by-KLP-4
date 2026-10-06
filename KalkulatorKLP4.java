@@ -48,3 +48,13 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         // ===== Display =====
         JPanel displayPanel = new JPanel(new BorderLayout(5, 5));
         displayPanel.setBackground(CREAM);
+        displayPanel.setBorder(new EmptyBorder(10, 15, 12, 15));
+
+        JPanel historyBar = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
+        historyBar.setOpaque(false);
+        JButton historyBtn = new JButton("HISTORY");
+        historyBtn.setFont(new Font("SansSerif", Font.BOLD, 12));
+        historyBtn.setBorder(new EmptyBorder(6, 14, 6, 14));
+        styleButton(historyBtn, MAROON_BRIGHT, Color.WHITE);
+        historyBtn.addActionListener(ev -> showHistory());
+        historyBar.add(historyBtn);
