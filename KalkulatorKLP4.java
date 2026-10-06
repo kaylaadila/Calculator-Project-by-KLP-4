@@ -206,7 +206,7 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         historyDialog.add(panel);
         refreshHistoryList();
     }
-    
+
     private void showHistory() {
         refreshHistoryList();
         historyDialog.setSize(340, 500);
@@ -218,4 +218,11 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
     private void refreshHistoryList() {
         historyModel.clear();
         for (int i = history.size() - 1; i >= 0; i--) historyModel.addElement(history.get(i));
+    }
+
+    private void addHistory(String e, double r) {
+        if (Double.isNaN(r) || Double.isInfinite(r)) return;
+        if (e.matches("-?[0-9.]+")) return;
+        history.add(e + " = " + formatResult(r));
+        refreshHistoryList();
     }
