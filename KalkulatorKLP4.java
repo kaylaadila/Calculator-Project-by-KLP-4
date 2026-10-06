@@ -320,3 +320,9 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
     private boolean isOperator(char c) {
         return c == '+' || c == '-' || c == MULC || c == DIVC;
     }
+    
+    private String currentNumber(String s) {
+        int i = s.length();
+        while (i > 0 && (Character.isDigit(s.charAt(i - 1)) || s.charAt(i - 1) == '.')) i--;
+        return s.substring(i);
+    }
