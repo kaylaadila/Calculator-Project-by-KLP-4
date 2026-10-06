@@ -326,3 +326,8 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         while (i > 0 && (Character.isDigit(s.charAt(i - 1)) || s.charAt(i - 1) == '.')) i--;
         return s.substring(i);
     }
+    
+    private void updateDisplay() {
+        String text = errorState ? "Error" : (expr.isEmpty() ? "0" : expr);
+        display.setText(text);
+    }
