@@ -58,3 +58,12 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         styleButton(historyBtn, MAROON_BRIGHT, Color.WHITE);
         historyBtn.addActionListener(ev -> showHistory());
         historyBar.add(historyBtn);
+
+        display = new JTextField("0");
+        display.setFont(new Font("SansSerif", Font.BOLD, 36));
+        display.setForeground(NUM_FG);
+        display.setBackground(CREAM);
+        display.setHorizontalAlignment(JTextField.RIGHT);
+        display.setBorder(null);
+        display.setEditable(false);
+        display.setFocusable(false);
