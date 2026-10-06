@@ -343,3 +343,14 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         if (Double.isNaN(v) || Double.isInfinite(v)) throw new ArithmeticException();
         return v;
     }
+    
+    private double parseExpr() {
+        double v = parseTerm();
+        while (pos < src.length()) {
+            char c = src.charAt(pos);
+            if (c == '+') { pos++; v += parseTerm(); }
+            else if (c == '-') { pos++; v -= parseTerm(); }
+            else break;
+        }
+        return v;
+    }
