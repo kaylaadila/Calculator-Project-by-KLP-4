@@ -390,3 +390,8 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             .stripTrailingZeros();
         return bd.toPlainString();
     }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new KalkulatorKLP4().setVisible(true));
+    }
+}
