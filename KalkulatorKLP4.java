@@ -97,3 +97,102 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             else if (cmd.equals(DIV)) bg = OP_PURPLE;
             else if (cmd.equals("+")) bg = OP_BLUE;
             else if (cmd.equals("-")) bg = OP_GREEN;
+            else if (cmd.equals("=")) bg = OP_CORAL;
+            else bg = NUM_BG;
+            Color fg = bg.equals(NUM_BG) ? NUM_FG : Color.WHITE;
+            styleButton(btn, bg, fg);
+            buttons.add(btn);
+        }
+        main.add(buttons, BorderLayout.CENTER);
+        add(main);
+
+        buildHistoryDialog();
+    }
+
+    private void styleButton(JButton b, Color bg, Color fg) {
+        b.setFocusPainted(false);
+        b.setFocusable(false);
+        b.setBorderPainted(false);
+        b.setContentAreaFilled(false);
+        b.setOpaque(true);
+        b.setBackground(bg);
+        b.setForeground(fg);
+        b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        b.getModel().addChangeListener(ev -> {
+            ButtonModel m = b.getModel();
+            if (m.isPressed()) b.setBackground(scale(bg, 0.72));
+            else if (m.isRollover()) b.setBackground(scale(bg, 1.15));
+            else b.setBackground(bg);
+        });
+    }
+
+    private Color scale(Color c, double f) {
+        return new Color(
+            Math.min(255, (int)(c.getRed()*f)),
+            Math.min(255, (int)(c.getGreen()*f)),
+            Math.min(255, (int)(c.getBlue()*f)));
+    }
+
+    // ===== HISTORY =====
+    private void buildHistoryDialog() {
+        historyDialog = new JDialog(this, "History", false);
+        historyDialog.setSize(340, 500);
+        historyDialog.setResizable(false);
+        historyDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        panel.setBackground(MAROON_MID);
+        panel.setBorder(new EmptyBorder(15, 15, 15, 15));
+
+        JLabel title = new JLabel("HISTORY", SwingConstants.CENTER);
+        title.setFont(new Font("SansSerif", Font.BOLD, 20));
+        title.setForeground(CREAM);
+        panel.add(title, BorderLayout.NORTH);
+        
+        historyModel = new DefaultListModel<>();
+        JList<String> list = new JList<>(historyModel);
+        list.setBackground(MAROON_DARK);
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.setCellRenderer((l, value, index, sel, focus) -> {
+            JPanel cell = new JPanel();
+            cell.setLayout(new BoxLayout(cell, BoxLayout.Y_AXIS));
+            cell.setBackground(sel ? MAROON_BRIGHT : MAROON_DARK);
+            cell.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(0x5A, 0x20, 0x20)),
+                new EmptyBorder(8, 12, 8, 12)));
+
+            int idx = value.lastIndexOf(" = ");
+            String e = idx >= 0 ? value.substring(0, idx) : value;
+            String r = idx >= 0 ? value.substring(idx + 3) : "";
+
+             JLabel el = new JLabel(e);
+            el.setFont(new Font("SansSerif", Font.PLAIN, 14));
+            el.setForeground(new Color(0xD0, 0xA8, 0xA8));
+            JLabel rl = new JLabel("= " + r);
+            rl.setFont(new Font("SansSerif", Font.BOLD, 18));
+            rl.setForeground(CREAM);
+            cell.add(el);
+            cell.add(rl);
+            return cell;
+        });
+        list.addListSelectionListener(ev -> {
+            if (ev.getValueIsAdjusting()) return;
+            int idx = list.getSelectedIndex();
+            if (idx >= 0) { useHistoryItem(idx); list.clearSelection(); }
+        });
+
+        JScrollPane scroll = new JScrollPane(list);
+        scroll.setBorder(BorderFactory.createLineBorder(new Color(0x6A, 0x28, 0x28)));
+        scroll.getViewport().setBackground(MAROON_DARK);
+        scroll.getVerticalScrollBar().setUnitIncrement(16);
+        panel.add(scroll, BorderLayout.CENTER);
+
+        JButton clearBtn = new JButton("Clear History");
+        clearBtn.setFont(new Font("SansSerif", Font.BOLD, 14));
+        styleButton(clearBtn, OP_RED, Color.WHITE);
+        clearBtn.addActionListener(ev -> { history.clear(); refreshHistoryList(); });
+
+        JButton closeBtn = new JButton("Close");
+        closeBtn.setFont(new Font("SansSerif", Font.BOLD, 14));
+        styleButton(closeBtn, NUM_BG, NUM_FG);
+        closeBtn.addActionListener(ev -> historyDialog.setVisible(false));
