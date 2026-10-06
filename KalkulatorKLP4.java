@@ -38,3 +38,13 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         setTitle("Kalkulator - KLP 4");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(360, 540);
+        setLocationRelativeTo(null);
+        setResizable(false);
+
+        JPanel main = new JPanel(new BorderLayout(10, 10));
+        main.setBackground(MAROON_MID);
+        main.setBorder(new EmptyBorder(15, 15, 15, 15));
+
+        // ===== Display =====
+        JPanel displayPanel = new JPanel(new BorderLayout(5, 5));
+        displayPanel.setBackground(CREAM);
