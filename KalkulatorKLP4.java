@@ -148,3 +148,19 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         title.setFont(new Font("SansSerif", Font.BOLD, 20));
         title.setForeground(CREAM);
         panel.add(title, BorderLayout.NORTH);
+        
+        historyModel = new DefaultListModel<>();
+        JList<String> list = new JList<>(historyModel);
+        list.setBackground(MAROON_DARK);
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.setCellRenderer((l, value, index, sel, focus) -> {
+            JPanel cell = new JPanel();
+            cell.setLayout(new BoxLayout(cell, BoxLayout.Y_AXIS));
+            cell.setBackground(sel ? MAROON_BRIGHT : MAROON_DARK);
+            cell.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(0x5A, 0x20, 0x20)),
+                new EmptyBorder(8, 12, 8, 12)));
+
+            int idx = value.lastIndexOf(" = ");
+            String e = idx >= 0 ? value.substring(0, idx) : value;
+            String r = idx >= 0 ? value.substring(idx + 3) : "";
