@@ -125,3 +125,10 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             else b.setBackground(bg);
         });
     }
+
+    private Color scale(Color c, double f) {
+        return new Color(
+            Math.min(255, (int)(c.getRed()*f)),
+            Math.min(255, (int)(c.getGreen()*f)),
+            Math.min(255, (int)(c.getBlue()*f)));
+    }
