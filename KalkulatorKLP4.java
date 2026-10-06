@@ -132,3 +132,19 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             Math.min(255, (int)(c.getGreen()*f)),
             Math.min(255, (int)(c.getBlue()*f)));
     }
+
+    // ===== HISTORY =====
+    private void buildHistoryDialog() {
+        historyDialog = new JDialog(this, "History", false);
+        historyDialog.setSize(340, 500);
+        historyDialog.setResizable(false);
+        historyDialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        panel.setBackground(MAROON_MID);
+        panel.setBorder(new EmptyBorder(15, 15, 15, 15));
+
+        JLabel title = new JLabel("HISTORY", SwingConstants.CENTER);
+        title.setFont(new Font("SansSerif", Font.BOLD, 20));
+        title.setForeground(CREAM);
+        panel.add(title, BorderLayout.NORTH);
