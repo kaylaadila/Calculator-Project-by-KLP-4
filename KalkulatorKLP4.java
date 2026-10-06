@@ -331,3 +331,15 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         String text = errorState ? "Error" : (expr.isEmpty() ? "0" : expr);
         display.setText(text);
     }
+    
+    // ===== Parser sederhana =====
+    private String src;
+    private int pos;
+
+    private double evaluate(String s) {
+        src = s; pos = 0;
+        double v = parseExpr();
+        if (pos != src.length()) throw new ArithmeticException();
+        if (Double.isNaN(v) || Double.isInfinite(v)) throw new ArithmeticException();
+        return v;
+    }
