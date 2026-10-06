@@ -354,3 +354,18 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         }
         return v;
     }
+    
+    private double parseTerm() {
+        double v = parseFactor();
+        while (pos < src.length()) {
+            char c = src.charAt(pos);
+            if (c == MULC) { pos++; v *= parseFactor(); }
+            else if (c == DIVC) {
+                pos++;
+                double d = parseFactor();
+                if (d == 0) throw new ArithmeticException();
+                v /= d;
+            } else break;
+        }
+        return v;
+    }
