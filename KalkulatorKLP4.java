@@ -375,3 +375,10 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         if (pos < src.length() && src.charAt(pos) == '+') { pos++; return parseFactor(); }
         return parseNumber();
     }
+    
+    private double parseNumber() {
+        int st = pos;
+        while (pos < src.length() && (Character.isDigit(src.charAt(pos)) || src.charAt(pos) == '.')) pos++;
+        if (pos == st) throw new ArithmeticException();
+        return Double.parseDouble(src.substring(st, pos));
+    }
