@@ -196,3 +196,13 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         closeBtn.setFont(new Font("SansSerif", Font.BOLD, 14));
         styleButton(closeBtn, NUM_BG, NUM_FG);
         closeBtn.addActionListener(ev -> historyDialog.setVisible(false));
+
+        JPanel row = new JPanel(new GridLayout(1, 2, 10, 0));
+        row.setOpaque(false);
+        row.add(clearBtn);
+        row.add(closeBtn);
+        panel.add(row, BorderLayout.SOUTH);
+
+        historyDialog.add(panel);
+        refreshHistoryList();
+    }
