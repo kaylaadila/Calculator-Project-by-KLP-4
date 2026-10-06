@@ -78,3 +78,13 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         String[] cmds = {
             "C", BACK, DIV, MUL,
             "7", "8", "9", "-",
+            "4", "5", "6", "+",
+            "1", "2", "3", "=",
+            "0", ".", "00", "+/-"
+        };
+
+        Font btnFont = new Font("SansSerif", Font.BOLD, 20);
+
+        for (String cmd : cmds) {
+            JButton btn = new JButton(cmd);
+            btn.setActionCommand(cmd);
