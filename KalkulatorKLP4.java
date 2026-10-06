@@ -284,3 +284,15 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         }
         updateDisplay();
     }
+
+    // Ubah tanda operand terakhir (+/-)
+    private void handleNegation() {
+        if (errorState) { errorState = false; expr = ""; justEvaluated = false; }
+        justEvaluated = false;
+        if (expr.isEmpty()) { expr = "-"; return; }
+
+        // cari awal angka terakhir
+        int end = expr.length();
+        // lewati kalau ada spasi di akhir? tidak ada, format kita tanpa spasi
+        int i = end;
+        while (i > 0 && (Character.isDigit(expr.charAt(i - 1)) || expr.charAt(i - 1) == '.')) i--;
