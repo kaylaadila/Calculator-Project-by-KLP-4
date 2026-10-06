@@ -97,3 +97,14 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             else if (cmd.equals(DIV)) bg = OP_PURPLE;
             else if (cmd.equals("+")) bg = OP_BLUE;
             else if (cmd.equals("-")) bg = OP_GREEN;
+             else if (cmd.equals("=")) bg = OP_CORAL;
+            else bg = NUM_BG;
+            Color fg = bg.equals(NUM_BG) ? NUM_FG : Color.WHITE;
+            styleButton(btn, bg, fg);
+            buttons.add(btn);
+        }
+        main.add(buttons, BorderLayout.CENTER);
+        add(main);
+
+        buildHistoryDialog();
+    }
