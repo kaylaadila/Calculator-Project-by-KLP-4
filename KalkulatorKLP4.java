@@ -382,3 +382,11 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         if (pos == st) throw new ArithmeticException();
         return Double.parseDouble(src.substring(st, pos));
     }
+    
+    private String formatResult(double v) {
+        if (v == 0) return "0";
+        BigDecimal bd = new BigDecimal(v)
+            .round(new MathContext(12, RoundingMode.HALF_UP))
+            .stripTrailingZeros();
+        return bd.toPlainString();
+    }
