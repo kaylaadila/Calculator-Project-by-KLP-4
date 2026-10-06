@@ -226,3 +226,15 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         history.add(e + " = " + formatResult(r));
         refreshHistoryList();
     }
+
+    private void useHistoryItem(int modelIndex) {
+        int hi = history.size() - 1 - modelIndex;
+        if (hi < 0 || hi >= history.size()) return;
+        String entry = history.get(hi);
+        int idx = entry.lastIndexOf(" = ");
+        expr = idx >= 0 ? entry.substring(0, idx) : entry;
+        justEvaluated = false;
+        errorState = false;
+        updateDisplay();
+        historyDialog.setVisible(false);
+    }
