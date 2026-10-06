@@ -268,3 +268,10 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         } else if (cmd.equals("=")) {
             if (justEvaluated || expr.isEmpty()) return;
             try {
+                                double r = evaluate(expr);
+                addHistory(expr, r);
+                expr = formatResult(r);
+                justEvaluated = true;
+            } catch (RuntimeException ex) {
+                errorState = true; expr = ""; justEvaluated = false;
+            }
