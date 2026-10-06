@@ -369,3 +369,9 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         }
         return v;
     }
+    
+    private double parseFactor() {
+        if (pos < src.length() && src.charAt(pos) == '-') { pos++; return -parseFactor(); }
+        if (pos < src.length() && src.charAt(pos) == '+') { pos++; return parseFactor(); }
+        return parseNumber();
+    }
