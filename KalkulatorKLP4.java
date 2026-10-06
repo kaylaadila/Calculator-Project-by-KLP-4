@@ -246,7 +246,7 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         if (errorState && !cmd.equals("C")) {
             errorState = false; expr = ""; justEvaluated = false;
         }
-        
+
                 if (cmd.matches("[0-9]") || cmd.equals(".") || cmd.equals("00")) {
             if (justEvaluated) { expr = ""; justEvaluated = false; }
             if (cmd.equals(".")) {
@@ -257,3 +257,14 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
                 if (currentNumber(expr).equals("0")) expr = expr.substring(0, expr.length() - 1) + cmd;
                 else expr += cmd;
             }
+                    } else if (cmd.equals("C")) {
+            expr = ""; justEvaluated = false; errorState = false;
+        } else if (cmd.equals(BACK)) {
+            if (errorState) { errorState = false; expr = ""; return; }
+            justEvaluated = false;
+            if (!expr.isEmpty()) expr = expr.substring(0, expr.length() - 1);
+        } else if (cmd.equals("+/-")) {
+            handleNegation();
+        } else if (cmd.equals("=")) {
+            if (justEvaluated || expr.isEmpty()) return;
+            try {
