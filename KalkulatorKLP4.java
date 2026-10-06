@@ -296,3 +296,102 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         // lewati kalau ada spasi di akhir? tidak ada, format kita tanpa spasi
         int i = end;
         while (i > 0 && (Character.isDigit(expr.charAt(i - 1)) || expr.charAt(i - 1) == '.')) i--;
+
+        if (i == 0) {
+            // seluruh expr angka → tinggal tambah/hapus minus di depan
+            if (expr.startsWith("-")) expr = expr.substring(1);
+            else expr = "-" + expr;
+        } else if (expr.charAt(i - 1) == '-') {
+            // kalau sebelumnya minus dan bukan operator minus (mis. "5-3" jangan diubah jadi "53")
+            // kita hanya ubah kalau '-' itu tanda negatif, bukan operator.
+            // Cek karakter sebelum '-':
+            if (i - 2 >= 0 && isOperator(expr.charAt(i - 2))) {
+                // "5--3" → "5-3"? terlalu ribet, cukup:
+                expr = expr.substring(0, i - 1) + expr.substring(i);
+            } else {
+                // "-3" di awal → "3"
+                expr = expr.substring(0, i - 1) + expr.substring(i);
+            }
+        } else {
+            expr = expr.substring(0, i) + "-" + expr.substring(i);
+        }
+    }
+
+    private boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == MULC || c == DIVC;
+    }
+
+    private String currentNumber(String s) {
+        int i = s.length();
+        while (i > 0 && (Character.isDigit(s.charAt(i - 1)) || s.charAt(i - 1) == '.')) i--;
+        return s.substring(i);
+    }
+    
+    private void updateDisplay() {
+        String text = errorState ? "Error" : (expr.isEmpty() ? "0" : expr);
+        display.setText(text);
+    }
+
+    // ===== Parser sederhana =====
+    private String src;
+    private int pos;
+    
+    private double evaluate(String s) {
+        src = s; pos = 0;
+        double v = parseExpr();
+        if (pos != src.length()) throw new ArithmeticException();
+        if (Double.isNaN(v) || Double.isInfinite(v)) throw new ArithmeticException();
+        return v;
+    }
+    
+    private double parseExpr() {
+        double v = parseTerm();
+        while (pos < src.length()) {
+            char c = src.charAt(pos);
+            if (c == '+') { pos++; v += parseTerm(); }
+            else if (c == '-') { pos++; v -= parseTerm(); }
+             else break;
+        }
+        return v;
+    }
+
+    private double parseTerm() {
+        double v = parseFactor();
+        while (pos < src.length()) {
+            char c = src.charAt(pos);
+            if (c == MULC) { pos++; v *= parseFactor(); }
+            else if (c == DIVC) {
+                pos++;
+                double d = parseFactor();
+                if (d == 0) throw new ArithmeticException();
+                v /= d;
+            } else break;
+        }
+        return v;
+    }
+
+    private double parseFactor() {
+        if (pos < src.length() && src.charAt(pos) == '-') { pos++; return -parseFactor(); }
+        if (pos < src.length() && src.charAt(pos) == '+') { pos++; return parseFactor(); }
+        return parseNumber();
+    }
+
+    private double parseNumber() {
+        int st = pos;
+        while (pos < src.length() && (Character.isDigit(src.charAt(pos)) || src.charAt(pos) == '.')) pos++;
+        if (pos == st) throw new ArithmeticException();
+        return Double.parseDouble(src.substring(st, pos));
+    }
+    
+    private String formatResult(double v) {
+        if (v == 0) return "0";
+        BigDecimal bd = new BigDecimal(v)
+            .round(new MathContext(12, RoundingMode.HALF_UP))
+            .stripTrailingZeros();
+        return bd.toPlainString();
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new KalkulatorKLP4().setVisible(true));
+    }
+}
