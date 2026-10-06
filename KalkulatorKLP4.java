@@ -97,7 +97,7 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
             else if (cmd.equals(DIV)) bg = OP_PURPLE;
             else if (cmd.equals("+")) bg = OP_BLUE;
             else if (cmd.equals("-")) bg = OP_GREEN;
-             else if (cmd.equals("=")) bg = OP_CORAL;
+            else if (cmd.equals("=")) bg = OP_CORAL;
             else bg = NUM_BG;
             Color fg = bg.equals(NUM_BG) ? NUM_FG : Color.WHITE;
             styleButton(btn, bg, fg);
@@ -107,4 +107,21 @@ public class KalkulatorKLP4 extends JFrame implements ActionListener {
         add(main);
 
         buildHistoryDialog();
+    }
+
+    private void styleButton(JButton b, Color bg, Color fg) {
+        b.setFocusPainted(false);
+        b.setFocusable(false);
+        b.setBorderPainted(false);
+        b.setContentAreaFilled(false);
+        b.setOpaque(true);
+        b.setBackground(bg);
+        b.setForeground(fg);
+        b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        b.getModel().addChangeListener(ev -> {
+            ButtonModel m = b.getModel();
+            if (m.isPressed()) b.setBackground(scale(bg, 0.72));
+            else if (m.isRollover()) b.setBackground(scale(bg, 1.15));
+            else b.setBackground(bg);
+        });
     }
