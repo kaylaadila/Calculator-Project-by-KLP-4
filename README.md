@@ -49,6 +49,7 @@ Tambahkan screenshot aplikasi kalkulator kalian pada bagian ini.
 Contoh penulisan jika gambar disimpan di folder `screenshots`:
 
 `![Tampilan Kalkulator](screenshots/kalkulator.jpeg)`
+<img width="534" height="809" alt="image" src="https://github.com/user-attachments/assets/51302671-7628-48ac-a9dd-264b258da6bb" />
 
 ## 🚀 Cara Menjalankan Aplikasi
 
