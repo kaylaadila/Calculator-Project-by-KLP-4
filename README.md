@@ -10,6 +10,25 @@
 
 </div>
 
+## 👥 Our Team
+
+Meet the people behind this project! 💻✨
+
+| No. | Name | Student ID |
+|:---:|---|---|
+| 01 | Muhammad Hafidz Zuliesky | 2108107010045 |
+| 02 | Kayla Adila Farija Atika | 250810701100067 |
+| 03 | Muhammad Rayyan | 250810701100113 |
+| 04 | Putri Rahmatul 'Ulya | 250810701100030 |
+
+<div align="center">
+
+**GROUP 5 — INFORMATICS**
+
+*Built together, learned together.*
+
+</div>
+
 ## 📌 About The Project
 
 Java Calculator merupakan aplikasi kalkulator berbasis desktop yang
@@ -53,10 +72,3 @@ Pastikan perangkat telah memiliki:
 - Java Development Kit (JDK).
 - Java compiler (`javac`).
 - Terminal atau IDE, seperti Visual Studio Code.
-
-### Installation
-
-1. Clone repository ini.
-
-   ```bash
-   git clone <repository-url>
