@@ -18,6 +18,25 @@ Aplikasi ini dirancang untuk membantu pengguna melakukan perhitungan aritmetika 
 
 Proyek ini dikembangkan sebagai bagian dari praktikum Informatika untuk menerapkan konsep pemrograman Java dalam pembuatan aplikasi desktop.
 
+## 👥 Identitas Pengembang
+
+Proyek ini dikembangkan oleh Kelompok 5 Program Studi Informatika.
+
+| No. | Nama Anggota             | NPM             |
+| :-: | ------------------------ | --------------- |
+|  1  | Muhammad Hafidz Zuliesky | 2108107010045   |
+|  2  | Kayla Adila Farija Atika | 250810701100067 |
+|  3  | Muhammad Rayyan          | 250810701100113 |
+|  4  | Putri Rahmatul 'Ulya     | 250810701100030 |
+
+## 🎯 Tujuan Pengembangan
+
+Proyek ini bertujuan untuk menerapkan pemrograman Java dalam pengembangan aplikasi desktop, memahami pembuatan antarmuka grafis menggunakan Java Swing, serta mengimplementasikan operasi aritmetika dan pengelolaan interaksi pengguna.
+
+Melalui proyek ini, kami juga mempelajari pentingnya penulisan kode yang terstruktur, pengujian program, dan dokumentasi proyek menggunakan GitHub.
+
+---
+
 ## ✨ Fitur Aplikasi
 
 * ➕ Penjumlahan.
@@ -44,54 +63,68 @@ Proyek ini dikembangkan sebagai bagian dari praktikum Informatika untuk menerapk
 
 ## 📸 Tampilan Aplikasi
 
-Tambahkan screenshot aplikasi kalkulator kalian pada bagian ini.
+Berikut merupakan tampilan aplikasi Java Calculator yang dikembangkan oleh Kelompok 5.
 
-Contoh penulisan jika gambar disimpan di folder `screenshots`:
+<div align="center">
+  <img
+    src="https://github.com/user-attachments/assets/51302671-7628-48ac-a9dd-264b258da6bb"
+    alt="Tampilan Java Calculator"
+    width="350"
+  />
+</div>
+## 🚀 Instalasi dan Cara Menjalankan Aplikasi
 
-`![Tampilan Kalkulator](screenshots/kalkulator.jpeg)`
-<img width="534" height="809" alt="image" src="https://github.com/user-attachments/assets/51302671-7628-48ac-a9dd-264b258da6bb" />
+### 1. Persyaratan Sistem
 
-## 🚀 Cara Menjalankan Aplikasi
+Sebelum menjalankan aplikasi, pastikan perangkat telah memiliki:
+- Java Development Kit (JDK).
+- Java compiler (`javac`).
+- Terminal atau Command Prompt.
 
-### Persyaratan
+### 2. Mengunduh Source Code
 
-Pastikan perangkat sudah memiliki:
-
-* Java Development Kit (JDK).
-* Java compiler (`javac`).
-* Terminal atau IDE seperti Visual Studio Code.
-
-### Langkah 1 — Clone Repository
-
-Buka terminal, kemudian jalankan:
+Unduh source code melalui repository GitHub berikut:
 
 ```bash
 git clone https://github.com/kaylaadila/Calculator-Project-by-KLP-4.git
 ```
 
-### Langkah 2 — Masuk ke Folder Proyek
+Masuk ke direktori proyek:
 
 ```bash
 cd Calculator-Project-by-KLP-4
 ```
 
-### Langkah 3 — Compile Program
+Alternatifnya, source code dapat diunduh melalui tombol **Code → Download ZIP** pada halaman repository GitHub.
 
-Jika nama file dan class utama masih `KalkulatorKLP4.java`, jalankan:
+### 3. Compile Program
+
+Buka terminal pada direktori yang berisi file `KalkulatorKLP4.java`, kemudian jalankan perintah:
 
 ```bash
 javac KalkulatorKLP4.java
 ```
 
-### Langkah 4 — Jalankan Aplikasi
+Jika tidak terdapat pesan error, program berhasil dikompilasi.
+
+### 4. Menjalankan Aplikasi
+
+Setelah proses kompilasi berhasil, jalankan perintah:
 
 ```bash
 java KalkulatorKLP4
 ```
 
-Setelah berhasil dijalankan, jendela aplikasi kalkulator akan muncul dan siap digunakan.
+Jendela aplikasi kalkulator akan terbuka dan siap digunakan.
 
-**Catatan:** Perintah di atas mengasumsikan source code utama bernama `KalkulatorKLP4.java`. Jika nama file di repository berbeda, sesuaikan perintah compile dan nama class yang dijalankan.
+### 5. Cara Menggunakan Aplikasi
+
+1. Masukkan angka menggunakan tombol angka pada kalkulator.
+2. Pilih operasi aritmetika yang diinginkan, yaitu penjumlahan (`+`), pengurangan (`-`), perkalian (`×`), atau pembagian (`÷`).
+3. Masukkan angka berikutnya.
+4. Tekan tombol `=` untuk menampilkan hasil perhitungan.
+5. Gunakan tombol `C` untuk menghapus perhitungan atau tombol Backspace untuk menghapus karakter terakhir.
+6. Tekan tombol `HISTORY` untuk melihat riwayat perhitungan.
 
 ## 🧪 Contoh Input dan Output
 
@@ -116,25 +149,6 @@ Misalnya, pengguna ingin menghitung `12 + 3`.
 5. Hasil perhitungan `15` akan ditampilkan pada layar kalkulator.
 
 Untuk melihat hasil perhitungan sebelumnya, klik tombol `HISTORY`.
-
-## 👥 Identitas Pengembang
-
-Proyek ini dikembangkan oleh Kelompok 5 Program Studi Informatika.
-
-| No. | Nama Anggota             | NPM             |
-| :-: | ------------------------ | --------------- |
-|  1  | Muhammad Hafidz Zuliesky | 2108107010045   |
-|  2  | Kayla Adila Farija Atika | 250810701100067 |
-|  3  | Muhammad Rayyan          | 250810701100113 |
-|  4  | Putri Rahmatul 'Ulya     | 250810701100030 |
-
-## 🎯 Tujuan Pengembangan
-
-Proyek ini bertujuan untuk menerapkan pemrograman Java dalam pengembangan aplikasi desktop, memahami pembuatan antarmuka grafis menggunakan Java Swing, serta mengimplementasikan operasi aritmetika dan pengelolaan interaksi pengguna.
-
-Melalui proyek ini, kami juga mempelajari pentingnya penulisan kode yang terstruktur, pengujian program, dan dokumentasi proyek menggunakan GitHub.
-
----
 
 <div align="center">
 
