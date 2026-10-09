@@ -6,10 +6,6 @@
 
 **A Simple Calculator Built with Java Swing**
 
-![Java](https://img.shields.io/badge/Language-Java-orange?style=for-the-badge\&logo=openjdk)
-![GUI](https://img.shields.io/badge/GUI-Java%20Swing-800000?style=for-the-badge)
-![Project](https://img.shields.io/badge/Project-Group%205-blue?style=for-the-badge)
-
 </div>
 
 ---
