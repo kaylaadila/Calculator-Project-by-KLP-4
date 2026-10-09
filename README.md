@@ -23,10 +23,6 @@ Meet the people behind this project! 💻✨
 
 <div align="center">
 
-**GROUP 5 — INFORMATICS**
-
-*Built together, learned together.*
-
 </div>
 
 ## 📌 About The Project
