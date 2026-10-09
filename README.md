@@ -4,11 +4,6 @@
 ### Kelompok 5 — Informatika
 
 *A simple calculator, designed with style.*
-
-![Java](https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=openjdk)
-![GUI](https://img.shields.io/badge/Interface-Java%20Swing-8B0000?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Completed-2E8B57?style=for-the-badge)
-
 ---
 
 **Simple calculations. Elegant interface. Efficient experience.**
