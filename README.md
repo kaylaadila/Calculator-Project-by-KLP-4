@@ -152,7 +152,7 @@ Untuk melihat hasil perhitungan sebelumnya, klik tombol `HISTORY`.
 
 <div align="center">
 
-**GROUP 5 — INFORMATICS**
+**GROUP 4 — INFORMATICS**
 
 *Built with Java, developed through collaboration.*
 
