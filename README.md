@@ -2,7 +2,7 @@
 
 # 🧮 JAVA CALCULATOR
 
-### Kelompok 5 — Informatika
+### Kelompok 4 — Informatika
 
 **A Simple Calculator Built with Java Swing**
 
@@ -12,7 +12,7 @@
 
 ## 📌 Deskripsi Aplikasi
 
-Java Calculator merupakan aplikasi kalkulator berbasis desktop yang dikembangkan menggunakan bahasa pemrograman Java dan library Java Swing untuk membangun antarmuka grafis atau Graphical User Interface (GUI).
+Java Calculator merupakan kalkulator berbasis desktop yang dikembangkan menggunakan bahasa pemrograman Java dan library Java Swing untuk membangun antarmuka grafis atau Graphical User Interface (GUI).
 
 Aplikasi ini dirancang untuk membantu pengguna melakukan perhitungan aritmetika dasar dengan tampilan yang sederhana dan mudah digunakan. Aplikasi juga menyediakan fitur riwayat perhitungan agar pengguna dapat melihat kembali hasil operasi yang telah dilakukan.
 
@@ -20,7 +20,7 @@ Proyek ini dikembangkan sebagai bagian dari praktikum Informatika untuk menerapk
 
 ## 👥 Identitas Pengembang
 
-Proyek ini dikembangkan oleh Kelompok 5 Program Studi Informatika.
+Proyek ini dikembangkan oleh Kelompok 4 Program Studi Informatika.
 
 | No. | Nama Anggota             | NPM             |
 | :-: | ------------------------ | --------------- |
